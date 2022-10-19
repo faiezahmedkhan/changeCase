@@ -41,10 +41,10 @@ var text = document.getElementById("myBox")
 
   return (  
     
-    <>  
+    <div className='container' style={ {color: props.mode==='dark' ? 'white':'black' } } >  
                 <h1>{props.heading}</h1>
                 <div className="mb-3">
-                <textarea className="form-control" value={text} onChange={handelOnChange}  id="myBox" rows="8"></textarea>
+                <textarea className="form-control"  value={text} onChange={handelOnChange} style={ {backgroundColor: props.mode==='dark' ? 'gray':'white', color: props.mode==='dark' ? 'white':'black' } }  id="myBox" rows="8"></textarea>
                 </div>
         
                <button className='btn btn-success mx-1' onClick={handelclick}>Convert to Uppercase</button>
@@ -56,17 +56,15 @@ var text = document.getElementById("myBox")
 
 
 
-               <div className="container my-4">
+               <div className="container my-4"  style={ {color: props.mode==='dark' ? 'white':'black' } }>
                 <h1>Your Text Summery</h1>
                 <p>{text.split(" ").length} words and {text.length}</p>
-                <p>{0.888 *  text.split(" ").length} Minuts Read</p>
-
                 <h2>Plain Text Here</h2>
                 <p>{text}</p>
 
                </div> 
 
-    </>
+    </div>
   )
 }
 
