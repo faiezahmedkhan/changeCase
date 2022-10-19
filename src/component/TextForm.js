@@ -60,7 +60,7 @@ var text = document.getElementById("myBox")
                 <h1>Your Text Summery</h1>
                 <p>{text.split(" ").length} words and {text.length}</p>
                 <h2>Plain Text Here</h2>
-                <p>{text}</p>
+                <p>{text.length>0?text:"Enter Somthing to Preview"}</p>
 
                </div> 
 
