@@ -1,8 +1,10 @@
 import React from "react";
 import Textform from "./component/TextForm";
 import Navbar from "./component/navbar";
+import About from "./component/about";
 import { useState } from "react";
 import Alert from "./component/Alert";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 const App = () => {
   const [mode, setMode] = useState("light");
@@ -27,16 +29,20 @@ const App = () => {
       showAlert("Light mode is enabled", "info");
       document.title = "TextUtils - Light Mode";
     }
-
   };
 
   return (
     <>
-      <Navbar title="TextUtilizer" mode={mode} togglemode={togglemode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <Textform showAlert="showAlert" heading="Enter the text to analyze below" mode={mode} />
-      </div>
+      <BrowserRouter>
+        <Navbar title="TextUtilizer" mode={mode} togglemode={togglemode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            <Route path="/"element={<Textform showAlert="showAlert"  heading="Enter the text to analyze below" mode={mode}/>}></Route>
+            <Route path="/About" element={<About />}></Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   );
 };
